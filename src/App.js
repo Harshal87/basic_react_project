@@ -14,7 +14,7 @@ function App() {
     {
       item: "Mobile",
       cost: "$100",
-      date: new Date(2023, 4, 29),
+      date: new Date(2023, 4, 20),
       place: "USA",
     },
   ];
@@ -23,8 +23,9 @@ function App() {
     <div>
       <h1>Expense Tracker</h1>
       {
-        obj1.map((obj) => (
+        obj1.map((obj,index) => (
           <ExpenseItems
+            key={index}
             place={obj.place}
             date={obj.date}
             item={obj.item}
