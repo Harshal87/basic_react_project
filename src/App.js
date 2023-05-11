@@ -26,6 +26,7 @@ const App = () => {
         {
           obj1.map((obj, index) => (
             <ExpenseItems
+            obj1={obj1}
               key={index}
               place={obj.place}
               date={obj.date}

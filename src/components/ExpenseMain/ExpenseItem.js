@@ -7,7 +7,16 @@ const ExpenseItems = (props) => {
   // const year = props.date.getFullYear();
   // const item_cot=10;
   // const date=props.date
+
+  const DelclickHandler = (event) => {
+    alert("Clicked");
+    // props.obj1.pop(props.key)
+    let element=event.target.parentNode.parentNode
+    element.remove()
+  };
+  console.log("main ",props.obj1)
   return (
+
     <div className="expense-item">
       {/* <h3>{props.date.toISOString()}</h3> */}
 
@@ -18,6 +27,7 @@ const ExpenseItems = (props) => {
         <h3>{props.place}</h3>
 
         <div className="expense-item__price">{props.cost}</div>
+        <button onClick={DelclickHandler}>Delete Item</button>
       </div>
     </div>
   );
