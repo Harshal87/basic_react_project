@@ -1,0 +1,7 @@
+.form-control{
+    justify-content: center;
+    display: flexbox;
+    padding: 2vh;
+    align-content: center;
+}
+

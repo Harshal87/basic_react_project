@@ -1,6 +1,8 @@
 import ExpenseItems from "./components/ExpenseMain/ExpenseItem";
 import { useState } from "react";
-import "./App.css";
+import ExpenseForm from "./components/ExpenseMain/ExpenseForm";
+import "./App.css"; 
+
 
 const App = () => {
   const obj1 = [
@@ -44,7 +46,7 @@ const App = () => {
   return (
     <div>
       <h1>Expense Tracker</h1>
-
+       <ExpenseForm></ExpenseForm>
       <div className="box">
         {
           obj1.map((obj, index) => (
