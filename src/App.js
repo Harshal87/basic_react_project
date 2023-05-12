@@ -10,14 +10,14 @@ const App = () => {
       item: "Food",
       cost: "$20",
       date: new Date(2023, 4, 12),
-      place: "Delhi",
+      
     },
 
     {
       item: "Mobile",
       cost: "$100",
       date: new Date(2023, 4, 20),
-      place: "USA",
+      
     },
   ];
   // const {obj2,setobj2}=useState(obj1)

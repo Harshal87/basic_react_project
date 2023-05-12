@@ -18,6 +18,7 @@ const [cost,setCost]=useState(props.cost)
 const updateCost=()=>{
   setCost("$100")
 }
+
   
 
   console.log("main ",props.obj1)
@@ -35,6 +36,7 @@ const updateCost=()=>{
         <div className="expense-item__price">{cost}</div>
         <button onClick={updateItem}>Update Item</button>
         <button onClick={updateCost}>Update Cost</button>
+        
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../ExpenseMain/ExpenseDate.css";
 import Card from "../UI/Card";
 
@@ -6,6 +7,11 @@ const ExpenseDate = (props) => {
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
   const month = props.date.toLocaleString("en-US", { month: "long" });
   const year = props.date.getFullYear();
+
+
+
+
+
 
   return (
     <Card className="expense-date">
@@ -16,7 +22,10 @@ const ExpenseDate = (props) => {
 
       <div className="expense-date__year"> {year}</div>
       {/* </div> */}
+     
     </Card>
+
+    
   );
 };
 
