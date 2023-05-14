@@ -1,10 +1,13 @@
 import ExpenseItems from "./components/ExpenseMain/ExpenseItem";
 import { useState } from "react";
-import ExpenseForm from "./components/ExpenseMain/ExpenseForm";
+import ExpenseForm from "./components/New Expense/ExpenseForm";
+import NewExpense from "./components/New Expense/NewExpense";
+import Expenses from "./components/ExpenseMain/Expenses"
 import "./App.css"; 
 
 
 const App = () => {
+  let newdata;
   const obj1 = [
     {
       item: "Food",
@@ -20,6 +23,24 @@ const App = () => {
       
     },
   ];
+  console.log("REFRESH")
+
+  const[data,setData]=useState(obj1)
+
+  const formDataHandler=(obj)=>{
+    console.log("in App.js ",obj)
+    obj1.push(obj)
+    console.log('before obj1 ',obj1)
+    setData(
+      {
+      ...obj1
+      }
+    )
+  }
+
+  console.log('obj1 ',obj1)
+
+  
   // const {obj2,setobj2}=useState(obj1)
   // console.log("usestate ",obj2)
 
@@ -46,28 +67,8 @@ const App = () => {
   return (
     <div>
       <h1>Expense Tracker</h1>
-       <ExpenseForm></ExpenseForm>
-      <div className="box">
-        {
-          obj1.map((obj, index) => (
-            <ExpenseItems
-            obj1={obj1}
-              key={obj.item}
-              place={obj.place}
-              date={obj.date}
-              item={obj.item}
-              cost={obj.cost}
-            
-            >
-              {" "}
-              {/* <button onClick={DelclickHandler}>Delete Item</button> */}
-            </ExpenseItems>
-            
-          ))
-          // <ExpenseItems place={obj1[0].place} date={obj1[0].date} item={obj1[0].item} cost={obj1[0].cost}> </ExpenseItems>
-          // <ExpenseItems place={obj1[1].place} date={obj1[1].date} item={obj1[1].item} cost={obj1[1].cost}> </ExpenseItems>
-        }
-      </div>
+      <NewExpense formDataHandler={formDataHandler}/>
+      <Expenses obj1={obj1}></Expenses>
     </div>
   );
 };

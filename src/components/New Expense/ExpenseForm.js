@@ -1,15 +1,18 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
-import ExpenseItems from "./ExpenseItem";
+import ExpenseItems from "../ExpenseMain/ExpenseItem";
+import NewExpense from "./NewExpense"
+import Expensefilter from "./Expensefilter";
 
-const ExpenseForm = () => {
+
+const ExpenseForm = (props) => {
   let eventhandler;
   //     const [title,settitle]=useState("")
   // const [amount,setamount]=useState("")
   // const [date,setdate]=useState("")
 
 
-  
+
 // User Input handler using UseState
 
   const [UserInput, SetUserInput] = useState({
@@ -38,6 +41,8 @@ const ExpenseForm = () => {
     });
   };
 
+ 
+
 
   // Form Click Event Handler funciton
   const FormclickHandler = (event) => {
@@ -53,6 +58,8 @@ const ExpenseForm = () => {
     // cost:event.target.parentNode.children[3].value
 
     console.log("Data is ", obj1);
+    props.logDataHandler(obj1)
+    // props
     // return(
     //     <ExpenseItems
     //     item={item}
@@ -60,19 +67,28 @@ const ExpenseForm = () => {
     //     cost={cost}
     //     />
     // )
+    SetUserInput(
+        {
+    enteredTitle:"",
+    enteredAmount:"",
+    enteredDate:""
+        }
+        )
   };
 
   return (
     <div className="form-control">
+      <Expensefilter></Expensefilter>
       <form action="#">
         <label htmlFor="title"> Expense Title</label>
-        <input type="text" onChange={titleHandler} name="title" />
+        <input type="text" value={UserInput.enteredTitle} onChange={titleHandler} name="title" />
         <label htmlFor="amount"> Expense Amount</label>
-        <input type="number" onChange={amountHandler} name="amount" />
+        <input type="number" value={UserInput.enteredAmount} onChange={amountHandler} name="amount" />
         <label htmlFor="date"> Expense Date</label>
-        <input type="date" onChange={dateHandler} name="date" />
+        <input type="date" value={UserInput.enteredDate} onChange={dateHandler} name="date" />
         <input type="submit" value="Submit" onClick={FormclickHandler} />
       </form>
+    
     </div>
   );
 };
