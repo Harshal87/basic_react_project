@@ -7,18 +7,18 @@ import "./App.css";
 
 
 const App = () => {
-  let newdata;
+
   const obj1 = [
     {
       item: "Food",
-      cost: "$20",
+      cost: "20",
       date: new Date(2023, 4, 12),
       
     },
 
     {
       item: "Mobile",
-      cost: "$100",
+      cost: "100",
       date: new Date(2023, 4, 20),
       
     },
@@ -28,17 +28,16 @@ const App = () => {
   const[data,setData]=useState(obj1)
 
   const formDataHandler=(obj)=>{
-    console.log("in App.js ",obj)
-    obj1.push(obj)
-    console.log('before obj1 ',obj1)
-    setData(
-      {
-      ...obj1
-      }
-    )
+
+    setData((prevState)=>{
+      console.log("insie ",obj)
+     return [obj,...prevState] 
+      
+    })
+
   }
 
-  console.log('obj1 ',obj1)
+  
 
   
   // const {obj2,setobj2}=useState(obj1)
@@ -68,7 +67,7 @@ const App = () => {
     <div>
       <h1>Expense Tracker</h1>
       <NewExpense formDataHandler={formDataHandler}/>
-      <Expenses obj1={obj1}></Expenses>
+      <Expenses obj1={data}></Expenses>
     </div>
   );
 };

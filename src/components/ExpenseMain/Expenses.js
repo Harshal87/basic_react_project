@@ -15,12 +15,12 @@ const Expenses=(props)=>{
           obj1.map((obj, index) => (
             <ExpenseItems
             obj1={obj1}
-              key={obj.item}
-              place={obj.place}
+              key={index}
+        
               date={obj.date}
               item={obj.item}
-              cost={obj.cost}
-            
+              cost={"$"+obj.cost}
+              
             >
               {" "}
               {/* <button onClick={DelclickHandler}>Delete Item</button> */}
