@@ -40,6 +40,7 @@ const ExpenseForm = (props) => {
 
   // Form Click Event Handler funciton
   const FormclickHandler = (event) => {
+    props.setaddexpenseclick(false)
     eventhandler = event;
     event.preventDefault();
     const obj1 = {
@@ -68,6 +69,9 @@ const ExpenseForm = (props) => {
     });
   };
 
+  const cancelbtn=()=>{
+    props.setaddexpenseclick(false)
+  }
   return (
     <div className="form-control">
       <form action="#">
@@ -93,6 +97,7 @@ const ExpenseForm = (props) => {
           name="date"
         />
         <input type="submit" value="Submit" onClick={FormclickHandler} />
+        <button onClick={cancelbtn}>Cancel</button>
       </form>
     </div>
   );
