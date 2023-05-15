@@ -1,41 +1,46 @@
-import React from "react"
-import ExpenseItems from "./ExpenseItem"
-const Expenses=(props)=>{
-    const obj1=props.obj1
-    console.log("Expenses ",obj1)
+import React, { useState } from "react";
+import ExpenseItems from "./ExpenseItem";
+import { useEffect } from "react";
+import Expensefilter from "../New Expense/Expensefilter";
+const Expenses = (props) => {
+  const obj1 = props.obj1;
+  console.log("Expenses ", obj1);
+  let NewYear = "2023";
 
-    
+  const [userYear, setuseryear] = useState(NewYear);
 
-    const formDataHandler=(obj)=>{
-        console.log("Expenses obj ",obj)
-    }
-    return(
-        <div className="box">
-        {
-          obj1.map((obj, index) => (
-            <ExpenseItems
-            obj1={obj1}
-              key={index}
-        
-              date={obj.date}
-              item={obj.item}
-              cost={"$"+obj.cost}
-              
-            >
-              {" "}
-              {/* <button onClick={DelclickHandler}>Delete Item</button> */}
-            </ExpenseItems>
-            
-          ))
+  // const[data,setData]=useState(props.obj1)
 
-          
-          // <ExpenseItems place={obj1[0].place} date={obj1[0].date} item={obj1[0].item} cost={obj1[0].cost}> </ExpenseItems>
-          // <ExpenseItems place={obj1[1].place} date={obj1[1].date} item={obj1[1].item} cost={obj1[1].cost}> </ExpenseItems>
-        }
+  const filterDataHandler = (useryear) => {
+    console.log("befire st ", userYear);
+    setuseryear(useryear);
+  };
 
-        
-      </div>
-    )
-}
+  const filteredExpenses = obj1.filter(
+    (obj) => obj.date.getFullYear() == userYear
+  );
 
-export default Expenses
+  let ExpenseContent = <p>Add New Elements</p>;
+
+  if (filteredExpenses.length > 0) {
+    ExpenseContent = filteredExpenses.map((obj, index) => (
+      <ExpenseItems
+        filteredExpenses={filteredExpenses}
+        key={Math.random().toString()}
+        date={obj.date}
+        item={obj.item}
+        cost={"$" + obj.cost}
+      />
+    ));
+  }
+
+  return (
+    <div className="box">
+      <Expensefilter filterDataHandler={filterDataHandler}></Expensefilter>
+
+      {ExpenseContent}
+    </div>
+  );
+};
+
+export default Expenses;

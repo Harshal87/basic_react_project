@@ -9,21 +9,18 @@ const ExpenseItems = (props) => {
   // const item_cot=10;
   // const date=props.date
 
-  const [title,setTitle]=useState(props.item)
-  const updateItem=()=>{
-    setTitle(props.item)
-  }
-const [cost,setCost]=useState(props.cost)
+  const [title, setTitle] = useState(props.item);
+  const updateItem = () => {
+    setTitle(props.item);
+  };
+  const [cost, setCost] = useState(props.cost);
 
-const updateCost=()=>{
-  setCost(props.cost)
-}
+  const updateCost = () => {
+    setCost(props.cost);
+  };
 
-  
-
-  console.log("main ",props.obj1)
+  console.log("main ", props.obj1);
   return (
-
     <div className="expense-item">
       {/* <h3>{props.date.toISOString()}</h3> */}
 
@@ -34,7 +31,10 @@ const updateCost=()=>{
         <div className="expense-item__price">{props.cost}</div>
         <button onClick={updateItem}>Update Item</button>
         <button onClick={updateCost}>Update Cost</button>
-        
+
+        {props.filteredExpenses.length === 1 && (
+          <h3>Only single Expense here. Please add more...</h3>
+        )}
       </div>
     </div>
   );

@@ -8,11 +8,6 @@ const ExpenseDate = (props) => {
   const month = props.date.toLocaleString("en-US", { month: "long" });
   const year = props.date.getFullYear();
 
-
-
-
-
-
   return (
     <Card className="expense-date">
       {/* <div className="expense-date"> */}
@@ -22,10 +17,7 @@ const ExpenseDate = (props) => {
 
       <div className="expense-date__year"> {year}</div>
       {/* </div> */}
-     
     </Card>
-
-    
   );
 };
 

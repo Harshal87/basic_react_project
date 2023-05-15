@@ -1,9 +1,8 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 import ExpenseItems from "../ExpenseMain/ExpenseItem";
-import NewExpense from "./NewExpense"
+import NewExpense from "./NewExpense";
 import Expensefilter from "./Expensefilter";
-
 
 const ExpenseForm = (props) => {
   let eventhandler;
@@ -11,9 +10,7 @@ const ExpenseForm = (props) => {
   // const [amount,setamount]=useState("")
   // const [date,setdate]=useState("")
 
-
-
-// User Input handler using UseState
+  // User Input handler using UseState
 
   const [UserInput, SetUserInput] = useState({
     enteredTitle: "",
@@ -41,9 +38,6 @@ const ExpenseForm = (props) => {
     });
   };
 
- 
-
-
   // Form Click Event Handler funciton
   const FormclickHandler = (event) => {
     eventhandler = event;
@@ -58,7 +52,7 @@ const ExpenseForm = (props) => {
     // cost:event.target.parentNode.children[3].value
 
     console.log("Data is ", obj1);
-    props.logDataHandler(obj1)
+    props.logDataHandler(obj1);
     // props
     // return(
     //     <ExpenseItems
@@ -67,28 +61,39 @@ const ExpenseForm = (props) => {
     //     cost={cost}
     //     />
     // )
-    SetUserInput(
-        {
-    enteredTitle:"",
-    enteredAmount:"",
-    enteredDate:""
-        }
-        )
+    SetUserInput({
+      enteredTitle: "",
+      enteredAmount: "",
+      enteredDate: "",
+    });
   };
 
   return (
     <div className="form-control">
-      <Expensefilter></Expensefilter>
       <form action="#">
         <label htmlFor="title"> Expense Title</label>
-        <input type="text" value={UserInput.enteredTitle} onChange={titleHandler} name="title" />
+        <input
+          type="text"
+          value={UserInput.enteredTitle}
+          onChange={titleHandler}
+          name="title"
+        />
         <label htmlFor="amount"> Expense Amount</label>
-        <input type="number" value={UserInput.enteredAmount} onChange={amountHandler} name="amount" />
+        <input
+          type="number"
+          value={UserInput.enteredAmount}
+          onChange={amountHandler}
+          name="amount"
+        />
         <label htmlFor="date"> Expense Date</label>
-        <input type="date" value={UserInput.enteredDate} onChange={dateHandler} name="date" />
+        <input
+          type="date"
+          value={UserInput.enteredDate}
+          onChange={dateHandler}
+          name="date"
+        />
         <input type="submit" value="Submit" onClick={FormclickHandler} />
       </form>
-    
     </div>
   );
 };
