@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ExpenseItems from "./ExpenseItem";
 import { useEffect } from "react";
 import Expensefilter from "../New Expense/Expensefilter";
+import ExpenseChart from "./ExpenseChart";
 const Expenses = (props) => {
   const obj1 = props.obj1;
   console.log("Expenses ", obj1);
@@ -37,7 +38,7 @@ const Expenses = (props) => {
   return (
     <div className="box">
       <Expensefilter filterDataHandler={filterDataHandler}></Expensefilter>
-
+      <ExpenseChart filteredData={filteredExpenses}></ExpenseChart>
       {ExpenseContent}
     </div>
   );

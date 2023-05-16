@@ -73,6 +73,7 @@ const ExpenseForm = (props) => {
     props.setaddexpenseclick(false)
   }
   return (
+ 
     <div className="form-control">
       <form action="#">
         <label htmlFor="title"> Expense Title</label>
@@ -96,7 +97,7 @@ const ExpenseForm = (props) => {
           onChange={dateHandler}
           name="date"
         />
-        <input type="submit" value="Submit" onClick={FormclickHandler} />
+        <button type="submit" value="Submit" onClick={FormclickHandler} >Add Expense Item</button>
         <button onClick={cancelbtn}>Cancel</button>
       </form>
     </div>
